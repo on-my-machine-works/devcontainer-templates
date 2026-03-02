@@ -1,10 +1,10 @@
 {
   "id": "phoenix",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "name": "Phoenix",
   "description": "Develop Phoenix web applications with Elixir and PostgreSQL.",
-  "documentationURL": "",
-  "licenseURL": "",
+  "documentationURL": "https://github.com/on-my-machine-works/devcontainer-templates",
+  "licenseURL": "https://github.com/on-my-machine-works/devcontainer-templates/blob/main/LICENSE",
   "publisher": "Wenrui LI",
   "platforms": [
     "linux"
