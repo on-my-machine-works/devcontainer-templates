@@ -1,6 +1,6 @@
 {
   "id": "phoenix",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "name": "Phoenix",
   "description": "Develop Phoenix web applications with Elixir and PostgreSQL.",
   "documentationURL": "",
