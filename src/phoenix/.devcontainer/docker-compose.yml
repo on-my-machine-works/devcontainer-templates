@@ -5,6 +5,8 @@ services:
       dockerfile: .devcontainer/Dockerfile
     volumes:
       - ../..:/workspaces:cached
+    ports:
+      - 4000:4000
     command: sleep infinity
     depends_on:
       - db
