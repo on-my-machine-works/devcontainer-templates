@@ -34,7 +34,7 @@
     "MIX_ENV": "dev"
   },
   // Install project dependencies
-  "postCreateCommand": "mix archive.install hex phx_new --force && mix deps.get",
+  "postCreateCommand": "mix archive.install hex phx_new --force && (mix deps.get || true)",
   "customizations": {
     "vscode": {
       "extensions": [
