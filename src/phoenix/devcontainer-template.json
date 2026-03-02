@@ -1,0 +1,15 @@
+{
+  "id": "phoenix",
+  "version": "0.1.0",
+  "name": "Phoenix",
+  "description": "Develop Phoenix web applications with Elixir and PostgreSQL.",
+  "documentationURL": "",
+  "licenseURL": "",
+  "publisher": "Wenrui LI",
+  "platforms": [
+    "linux"
+  ],
+  "categories": [
+    "Languages & Frameworks"
+  ]
+}

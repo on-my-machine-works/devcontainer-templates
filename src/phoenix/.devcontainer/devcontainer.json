@@ -1,0 +1,61 @@
+// For format details, see https://containers.dev/implementors/json_reference/
+{
+  "$schema": "https://raw.githubusercontent.com/devcontainers/spec/refs/heads/main/schemas/devContainer.schema.json",
+  "name": "Phoenix",
+  "dockerComposeFile": "docker-compose.yml",
+  "service": "app",
+  "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
+  "runServices": [
+    "app",
+    "db"
+  ],
+  // Forward Phoenix and PostgreSQL ports
+  "forwardPorts": [
+    4000,
+    5432
+  ],
+  "portsAttributes": {
+    "4000": {
+      "label": "Phoenix",
+      "onAutoForward": "notify"
+    },
+    "5432": {
+      "label": "PostgreSQL",
+      "onAutoForward": "silent"
+    }
+  },
+  // Node.js — used by Phoenix for asset compilation (esbuild/tailwindcss)
+  "features": {
+    "ghcr.io/devcontainers/features/node:1": {
+      "version": "lts"
+    }
+  },
+  "containerEnv": {
+    "MIX_ENV": "dev"
+  },
+  // Install project dependencies
+  "postCreateCommand": "mix archive.install hex phx_new --force && mix deps.get",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        // Elixir language support
+        "JakeBecker.elixir-ls",
+        // Elixir formatter and snippets
+        "pantajoe.vscode-elixir-credo",
+        // Phoenix / HEEx template support
+        "phoenixframework.phoenix"
+      ],
+      "settings": {
+        "editor.formatOnSave": true,
+        "[elixir]": {
+          "editor.defaultFormatter": "JakeBecker.elixir-ls"
+        },
+        "[phoenix-heex]": {
+          "editor.defaultFormatter": "JakeBecker.elixir-ls"
+        },
+        "elixirLS.dialyzerEnabled": true
+      }
+    }
+  },
+  "remoteUser": "vscode"
+}
