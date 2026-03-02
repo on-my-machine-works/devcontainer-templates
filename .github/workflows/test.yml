@@ -8,24 +8,13 @@ on:
       - main
 
 jobs:
-  detect-changes:
-    runs-on: ubuntu-latest
-    outputs:
-      templates: ${{ steps.filter.outputs.changes }}
-    steps:
-      - uses: dorny/paths-filter@v2
-        id: filter
-        with:
-          filters: |
-            phoenix: ./**/phoenix/**
-
   test:
-    needs: [detect-changes]
     runs-on: ubuntu-latest
     continue-on-error: true
     strategy:
       matrix:
-        templates: ${{ fromJSON(needs.detect-changes.outputs.templates) }}
+        templates:
+          - phoenix
     steps:
       - uses: actions/checkout@v3
 
