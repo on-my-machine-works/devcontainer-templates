@@ -1,8 +1,8 @@
 {
   "id": "phoenix",
-  "version": "0.1.3",
+  "version": "0.2.0",
   "name": "Phoenix",
-  "description": "Develop Phoenix web applications with Elixir and PostgreSQL.",
+  "description": "Develop Phoenix web applications with Elixir. Supports PostgreSQL or SQLite as the database backend.",
   "documentationURL": "https://github.com/on-my-machine-works/devcontainer-templates",
   "licenseURL": "https://github.com/on-my-machine-works/devcontainer-templates/blob/main/LICENSE",
   "publisher": "Wenrui LI",
@@ -11,5 +11,16 @@
   ],
   "categories": [
     "Languages & Frameworks"
-  ]
+  ],
+  "options": {
+    "database": {
+      "type": "string",
+      "enum": [
+        "postgresql",
+        "sqlite3"
+      ],
+      "default": "postgresql",
+      "description": "Database adapter for the Phoenix application. Choose 'postgresql' for a full PostgreSQL service, or 'sqlite3' for a lightweight database."
+    }
+  }
 }

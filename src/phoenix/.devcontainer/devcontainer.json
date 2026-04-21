@@ -7,9 +7,9 @@
   "workspaceFolder": "/workspace",
   "runServices": [
     "app",
-    "db"
+    "${templateOption:database}"
   ],
-  // Forward Phoenix and PostgreSQL ports
+  // Forward Phoenix port; PostgreSQL port is only relevant when using postgresql
   "forwardPorts": [
     4000,
     5432
@@ -31,9 +31,10 @@
     }
   },
   "containerEnv": {
-    "MIX_ENV": "dev"
+    "MIX_ENV": "dev",
+    "PHOENIX_DATABASE": "${templateOption:database}"
   },
-  // Install project dependencies
+  // Install project dependencies; use $PHOENIX_DATABASE with phx.new: mix phx.new myapp --database $PHOENIX_DATABASE
   "postCreateCommand": "mix archive.install hex phx_new --force && (mix deps.get || true)",
   "customizations": {
     "vscode": {
